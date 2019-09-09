@@ -28,7 +28,7 @@ export default {
   }),
   computed: {
     ...mapGetters({
-      todos: "linagora.esn.todo/getTodos"
+      todos: "linagora.esn.todo-final/getTodos"
     }),
     orderedTodos() {
       return orderBy(this.todos, "created_at", "desc");
@@ -36,18 +36,18 @@ export default {
   },
   methods: {
     addTodo() {
-      this.$store.dispatch("linagora.esn.todo/createTodo", { title: this.todo });
+      this.$store.dispatch("linagora.esn.todo-final/createTodo", { title: this.todo });
       this.todo = "";
     },
     updateDone(value) {
-      this.$store.dispatch("linagora.esn.todo/updateDone", value);
+      this.$store.dispatch("linagora.esn.todo-final/updateDone", value);
     },
     removeTodo(_id) {
-      this.$store.dispatch("linagora.esn.todo/removeTodo", _id);
+      this.$store.dispatch("linagora.esn.todo-final/removeTodo", _id);
     }
   },
   mounted() {
-    this.$store.dispatch("linagora.esn.todo/fetchTodos");
+    this.$store.dispatch("linagora.esn.todo-final/fetchTodos");
   },
   components: {
     Todo
